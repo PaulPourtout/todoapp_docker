@@ -1,0 +1,22 @@
+{
+  "name": "docker_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "sass": "node-sass-chokidar ./style/sass/style.scss --output ./style/css",
+    "sass-watch": "npm run sass -- --watch",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "node-sass-chokidar": "0.0.3",
+    "pg": "^7.4.0",
+    "pug": "^2.0.0-rc.4"
+  }
+}

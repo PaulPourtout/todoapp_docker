@@ -1,0 +1,18 @@
+html {
+  font-family: sans-serif;
+  color: #212121; }
+
+h1 {
+  text-transform: uppercase; }
+
+li {
+  list-style: none; }
+
+.list-container {
+  background-color: #FFF;
+  padding: 1rem;
+  border: 0.2rem solid #F2F2F2; }
+  .list-container .list-item {
+    background-color: #F2F2F2;
+    padding: 1rem;
+    margin-bottom: 0.5rem; }

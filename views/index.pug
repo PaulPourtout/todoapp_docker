@@ -1,0 +1,5 @@
+include partials/head.pug
+h1 My Todo app
+ul(class="list-container")
+    each item in datas
+        li(class="list-item")= `${item.id}) ${item.name}`
