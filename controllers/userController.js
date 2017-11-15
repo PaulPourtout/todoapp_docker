@@ -23,6 +23,13 @@ module.exports = express.Router()
     .catch(err => res.json(err));
 })
 
+.get('/:userId/todos/:categoryId', (req, res) => {
+    const {userId, categoryId} = req.params;
+    userModel.getTodosOfUserByCategory(userId, categoryId)
+    .then(data => res.json(data.rows))
+    .catch(err => res.json(err));
+})
+
 .post('', (req, res) => {
     const {firstname, lastname} = req.body;
     userModel.postNewUser(firstname, lastname)

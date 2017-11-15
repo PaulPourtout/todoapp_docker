@@ -9,11 +9,23 @@ module.exports = {
     
     // get all todos of one user
     getTodosOfUser(id) {
-        return db.query(`SELECT users.firstname, users.lastname, todos.name AS todo, categories.name AS category FROM users
-            INNER JOIN users_todos on (users.id = users_todos.user_id)
-            INNER JOIN todos on (users_todos.todo_id = todos.id)
-            INNER JOIN categories on (todos.category_id = categories.id)
-            WHERE users.id = ${id};`);
+        return db.query(`
+            SELECT users.firstname, users.lastname, todos.name AS todo, categories.name AS category FROM users
+            INNER JOIN users_todos ON (users.id = users_todos.user_id)
+            INNER JOIN todos ON (todos.id = users_todos.todo_id)
+            INNER JOIN categories ON (categories.id = todos.category_id)
+            WHERE users.id = ${id};
+        `);
+    },
+  
+    getTodosOfUserByCategory(userId, categoryId) {
+        return db.query(`
+            SELECT todos.name AS todo, categories.name AS category FROM users
+            INNER JOIN users_todos ON (users.id = users_todos.user_id)
+            INNER JOIN todos ON (todos.id = users_todos.todo_id)
+            INNER JOIN categories ON (categories.id = todos.category_id)
+            WHERE users.id = ${userId} AND categories.id = ${categoryId} 
+        `);
     },
     
     postNewUser(firstname, lastname) {
