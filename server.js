@@ -5,6 +5,7 @@ const userController = require('./controllers/userController');
 const todoController = require('./controllers/todoController');
 const categoryController = require('./controllers/categoryController')
 const db = require('./models/db');
+const port = process.env.PORT || 3000;
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -36,9 +37,9 @@ app.use('/categories', categoryController);
 
 app.get('/*', (req, res) => res.send("ERROR 404 : Page not found"));
 
-app.listen(3000, (err) => {
+app.listen(port, (err) => {
     try {
-        console.log("Server listens port 3000")
+        console.log(`Server listens port ${port}`)
     }
     catch (err) {
         console.log('error', err);
