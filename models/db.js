@@ -2,7 +2,8 @@ const client = require('pg').Client;
 
 const db = new client({
     user: 'user1',
-    host: 'localhost',
+    host: 'db', // WHEN IN WEB CONTAINER
+    // host: 'localhost',
     database: 'tododb',
     password: 'changeme',
     port: 5432

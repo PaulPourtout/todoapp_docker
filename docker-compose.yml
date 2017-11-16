@@ -1,9 +1,21 @@
 version: '3.1'
 services :
+  web:
+    build: .
+    command: npm start
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://tododb@postgres/todos
   db:
     image: postgres:10-alpine
     ports:
-      - "5432:5432"
+      - 5432:5432
     environment:
       POSTGRES_USER: user1
       POSTGRES_PASSWORD: changeme

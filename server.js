@@ -6,6 +6,10 @@ const todoController = require('./controllers/todoController');
 const categoryController = require('./controllers/categoryController')
 const db = require('./models/db');
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    next();
+});
 // parse application/json
 app.use(express.json());
 
