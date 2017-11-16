@@ -14,7 +14,6 @@ app.use((req, res, next) => {
 // parse application/json
 app.use(express.json());
 
-
 /*
 // USING PUG TO DISPLAY SOME DATAS
     // Set Template Engine
